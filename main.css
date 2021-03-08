@@ -1,0 +1,24 @@
+body {
+    font-family: helvetica;
+    background: var(--backgroundColor);
+}
+  .light-theme {
+    --backgroundColor: var(--beige);
+    --fontColor: var(--black);
+  }
+  
+  .dark-theme {
+    --backgroundColor: var(--black);
+    --fontColor: var(--green);
+  }
+
+  :root {
+    --beige: #C8B59E;
+    --white: #ffffff;
+    --black: #000000;
+  }
+  * {
+    color: var(--fontColor);
+    font-family: helvetica;
+  }
+  

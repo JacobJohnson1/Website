@@ -1,12 +1,15 @@
 body {
-    font-family: 'Times New Roman', Times, serif;
-    background: var(--beige1);
-}
+    font-family: Georgia;
+    font-style: italic;
+  }
   :root {
     --beige1: #C8B59E;
     --white: #ffffff;
     --black: #000000;
   }
-center {
-    text-align: center;
+
+
+.container {
+    display: flex;
+    align-items: center;
 }

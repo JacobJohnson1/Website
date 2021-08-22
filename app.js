@@ -1,18 +1,26 @@
-'use strict'
+const fs = require('fs')
+const http = require('http')
+const port = 3000
 
-function openTab(tabType, tabName) {
-
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+const server = http.createServer(function(req, res) {
+    res.writeHead(200, {'Content-Type': 'text/html'})
+    fs.readFile('index.html', function(error, data) {
+    if(error){
+        res.writeHead(404)
+        res.write('Error: File Not Found')
     }
-
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablink[i].className = tablinks[i].className.replace("active", "");
+    else{
+        res.write(data)
     }
+    res.end()
+  })
+})
 
-    document.getElementById(tabName).style.display = "block";
-    tabType.currentTarget.className += " active";
-
-}
+server.listen(port, function(error) {
+    if(error){
+        console.log('Something went wrong', error)
+    }
+    else{
+        console.log('Server running on: ' + port)
+    }
+})
